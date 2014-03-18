@@ -150,7 +150,7 @@ module GoogleDrive
           reload() if !@cells
           # Memoizes it because this can be bottle-neck.
           # https://github.com/gimite/google-drive-ruby/pull/49
-          return @num_rows ||= @input_values.select(){ |(r, c), v| !v.empty? }.map(){ |(r, c), v| r }.max || 0
+          return @num_rows ||= @input_values.select(){ |(r, c), v| !v.blank? }.map(){ |(r, c), v| r }.max || 0
         end
 
         # Column number of the right-most non-empty column.
@@ -158,7 +158,7 @@ module GoogleDrive
           reload() if !@cells
           # Memoizes it because this can be bottle-neck.
           # https://github.com/gimite/google-drive-ruby/pull/49
-          return @num_cols ||= @input_values.select(){ |(r, c), v| !v.empty? }.map(){ |(r, c), v| c }.max || 0
+          return @num_cols ||= @input_values.select(){ |(r, c), v| !v.blank? }.map(){ |(r, c), v| c }.max || 0
         end
 
         # Number of rows including empty rows.
